@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+    #preg
+    {
+    position: absolute;
+    left: 285px;
+    top: 20px;
+    width: 800px;
+    height: 150px;
+    background: cadetblue;
+    border-radius: 5%;
+    border: 5px black solid;
+    }
+    #n
+    {
+    position: absolute;
+    left: 235px;
+    top: 35px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    }
+    #sign
+    {
+    position: absolute;
+    left: 385px;
+    top: 35px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    }
+    #n1
+    {
+    position: absolute;
+    left: 535px;
+    top: 35px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    }
+    #numero
+    {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    left: 350px;
+    top: 250px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100
+    }
+    #boton
+    {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    left: 800px;
+    top: 225px;
+    font-family: 'Montserrat',sans-serif;
+    background: blue;
+    font-size: 50px;
+    font-weight: 100
+    }
+    #pcs
+    {
+    position: absolute;
+    left: 285px;
+    top: 480px;
+    width: 800px;
+    height: 150px;
+    background: cadetblue;
+    border-radius: 5%;
+    border: 5px black solid;
+    }
+    #p
+    {
+    position: absolute;
+    left: 50px;
+    top: 35px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    }
+    #cs
+    {
+    position: absolute;
+    left: 600px;
+    top: 40px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100
+    }
+    #emp
+    {        
+    position: absolute;
+    width: 1000px;
+    height: 630px;
+    left: 200px;
+    top: 10px;
+    font-family: 'Montserrat',sans-serif;
+    background: blue;
+    font-size: 50px;
+    font-weight: 100
+    }
+    #cont
+    {
+    position: absolute;
+    left: 385px;
+    top: 260px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    }
+    #term
+    {
+    position: absolute;
+    left: 175px;
+    top: 220px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 50px;
+    font-weight: 100; 
+    }
+    #ter
+    {
+    position: absolute;
+    width: 1000px;
+    height: 630px;
+    left: 200px;
+    top: 10px;
+    font-family: 'Montserrat',sans-serif;
+    background: blue;
+    font-size: 50px;
+    font-weight: 100 
+    }
+    </style>
+</head>
+<body>
+    
+    <div id="preg">
+        <div id="n"></div>
+        <div id="sign"></div>
+        <div id="n1"></div>
+    </div>
+    <form>
+        <input type="text" id="numero">
+        <div id="boton" onclick="res()"></div>
+    </form>
+    <div id="pcs">
+        <div id="p">Puntaje: </div>
+        <div id="cs">60</div>
+    </div>
+    <div id="emp" onclick="random()">
+        <div id="cont">EMPEZAR.</div></div>
+        <div id="ter" style="display: none;">
+            <div id="term">SE TERMINÓ EL TIEMPO.</div>
+        </div>
+    <script>
+        puntos=0;
+        rt=0;
+function res()
+{
+    
+    respuestau=Number(numero.value);
+    if(sign.innerHTML=="+")
+    {
+        result=x+x1;
+    }
+    if(sign.innerHTML=="-")
+    {
+        result=x-x1;
+    }
+    
+    if(respuestau==result)
+    {
+        puntos=puntos+10;
+        p.innerHTML="Puntaje: "+puntos;   
+    }
+    else
+    {
+        puntos=puntos-10;
+        p.innerHTML="Puntaje: "+puntos; 
+
+    }
+        setTimeout(random,100);
+    }
+
+    
+
+function random()
+{
+    emp.style.display="none";
+    x=Math.floor((Math.random() * (151-1))+1);
+    x1=Math.floor((Math.random() * (151-1))+1);
+    s=Math.floor((Math.random() * (3-1))+1);
+    n.innerHTML=x;
+    n1.innerHTML=x1;
+    if(s==1)
+    {
+        sign.innerHTML="+";
+    }
+    if(s==2)
+    {
+        sign.innerHTML="-";
+    }
+}
+function ad()
+{
+segundos=cs.innerHTML;
+cs.innerHTML=segundos-1;
+    if(segundos==0)
+    {
+    ter.style.display="block";
+    clearInterval(contador);
+    puntaje=p.innerHTML;
+    term.innerHTML="SE TERMINO EL TIEMPO.<br><br>SU PUNTAJE FUE DE: "+puntos;
+    }
+}
+contador=setInterval(ad,1000);
+    </script>
+</body>
+</html>
